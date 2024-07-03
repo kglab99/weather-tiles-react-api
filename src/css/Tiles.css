@@ -5,12 +5,15 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --background-color: #08252b;
+  --tile-color: #0b343c;
 }
 
 #root {
@@ -44,16 +47,11 @@ div.RCP {
 div.tile-square {
   width: 200px;
   height: 200px;
-  background-color: #172a32;
+  background-color: var(--tile-color);
   display: flex;
   flex-direction: column;
 }
 
-div.top-bar {
-  p {
-    color: #f6f7eb;
-  }
-}
 
 div.content {
   display: flex;
@@ -101,7 +99,7 @@ div.popup-overlay {
 }
 
 div.popup-content {
-  background-color: #172a32;
+  background-color: var(--tile-color);
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -123,7 +121,7 @@ div.popup-content {
   button.close {
     display: flex;
     margin-left: auto;
-    background-color: #172a32;
+    background-color: var(--tile-color);
 
     img {
       width: 36px;
@@ -143,14 +141,7 @@ table {
     text-align: left;
   }
 
-  td.line {
-    /* display: flex; */
-    /* margin-left: ; */
-  }
-
   td {
-    /* display: flex; */
-    /* flex-direction: row; */
 
     svg {
       width: 90%;
@@ -163,7 +154,7 @@ div.buttons {
   width: 100%;
   gap: 32px;
   justify-content: center;
-  background-color: #172a32;
+  background-color: var(--tile-color);
   padding: 15px;
   border-radius: 5px;
 
@@ -193,7 +184,10 @@ div.buttons {
     }
   }
 
-  body {
+
+  div.buttons {
+    width: 348px;
+
   }
 
   #root {
