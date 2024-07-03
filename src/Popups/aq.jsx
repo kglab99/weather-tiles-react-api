@@ -16,7 +16,7 @@ function AQPopup({forecast, day}) {
 
     return(
         <>
-            <TopBar text="Air quality" img="aq" infoIcon={true}/>
+            <TopBar text="Air quality" img="aq" infoIcon={false}/>
             <h2>How do we calculate Air Quality Index?</h2>
             <p className="info">
             Air Quality Index used in the app is based on GB Defra Index, which is a system developed by the Department for Environment, Food & Rural Affairs (Defra) in the United Kingdom to provide the public with clear and understandable information about air pollution levels. 
