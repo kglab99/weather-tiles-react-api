@@ -13,6 +13,7 @@
 - UV index and air quality indicators is made with **rc-progress** 
 - Sunrise half donut progress bar showing elapsed daytime,
 calculations is made with **SunCalc**  and progress bar is made with **react-customizable-progressbar** 
+- Weather forecast is provided by **www.weatherapi.com**
 
 
 
