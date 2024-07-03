@@ -47,11 +47,11 @@ const DisplayWhenFetchedAndChooseDay = () => {
       <TileWind forecast={forecast} day={day} />
       <TileRain forecast={forecast} day={day} />
       <TileUV forecast={forecast} day={day} />
+      {day == 0 && <TileSunrise forecast={forecast} day={day} />}
       <TileMoon forecast={forecast} day={day} />
       <TileVisibility forecast={forecast} day={day} />
       <TileHumidity forecast={forecast} day={day} />
       {/* Currently sunrise displayed only on day 0 */}
-      {day == 0 && <TileSunrise forecast={forecast} day={day} />}
       <TilePressure forecast={forecast} day={day} />
       <TileAQ forecast={forecast} day={day} />
     </>

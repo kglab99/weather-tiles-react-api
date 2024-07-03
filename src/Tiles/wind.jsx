@@ -21,7 +21,7 @@ function TileWind({ forecast, day }) {
       onClick={MoreClick}
       onDoubleClick={MoreClick}
     >
-      <TopBar text="Wind speed" img="wind" infoIcon={true} />
+      <TopBar text="Wind speed" img="wind" chartIcon={true} />
       <WindContent forecast={forecast} day={day} />
       <Popup open={MoreToggle} closeOnDocumentClick>
         <button className="close" onClick={MoreClick} style={buttonStyle}>

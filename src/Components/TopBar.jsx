@@ -1,3 +1,4 @@
+import { ChartIcon } from "../Additional/ChartIcon";
 import { InfoIcon } from "../Additional/InfoIcon";
 import tempImg from "/location.png";
 import windImg from "/wind.png";
@@ -11,7 +12,7 @@ import pressureImg from "/pressure.png";
 import aqImg from "/air-quality.png";
 import sunriseImg from "/sunrise.png";
 
-function TopBar({ text, img, infoIcon }) {
+function TopBar({ text, img, chartIcon, infoIcon }) {
   const imgSrc = {
     temp: tempImg,
     wind: windImg,
@@ -47,6 +48,7 @@ function TopBar({ text, img, infoIcon }) {
     <div className="top-bar" style={topBarStyle}>
       <img src={imgSrc[img]} alt="" style={imgStyle} />
       <p style={pStyle}>{text}</p>
+      {chartIcon && <ChartIcon />}
       {infoIcon && <InfoIcon />}
     </div>
   );

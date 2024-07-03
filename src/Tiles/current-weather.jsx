@@ -21,7 +21,7 @@ function TileCurrentWeather({forecast, day}) {
 
     return (
         <div className="tile-square clickable" style={tileSquareStyle} onClick={MoreClick} onDoubleClick={MoreClick}>
-            <TopBar text={location} img="temp" infoIcon={true}/>
+            <TopBar text={location} img="temp" chartIcon={true}/>
             <CurrentWeatherContent forecast={forecast} day={day} />
             <Popup open={MoreToggle} closeOnDocumentClick >
                 <button className="close" onClick={MoreClick} style={buttonStyle}>

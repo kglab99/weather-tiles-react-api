@@ -25,7 +25,7 @@ function TileAQ({ forecast, day }) {
       onClick={MoreClick}
       onDoubleClick={MoreClick}
     >
-      <TopBar text="Air quality" img="aq" infoIcon={true} />
+      <TopBar text="Air quality" img="aq" chartIcon={true} />
       <AQContent forecast={forecast} day={day} />
       <Popup open={MoreToggle} closeOnDocumentClick>
         <button className="close" onClick={MoreClick} style={buttonStyle}>

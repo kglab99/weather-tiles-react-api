@@ -21,7 +21,7 @@ function TileRain({ forecast, day }) {
       onClick={MoreClick}
       onDoubleClick={MoreClick}
     >
-      <TopBar text="Chance of rain" img="rain" infoIcon={true} />
+      <TopBar text="Chance of rain" img="rain" chartIcon={true} />
       <WindContent forecast={forecast} day={day} />
       <Popup open={MoreToggle} closeOnDocumentClick>
         <button className="close" onClick={MoreClick} style={buttonStyle}>
