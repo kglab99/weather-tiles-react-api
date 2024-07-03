@@ -3,9 +3,12 @@
 
 # Info
 - Weather app made for exploration of React.
-- The main focus was put on using clearly organized modules with reusable structure.
-- Additional task was implementing charting library and working with API.
 - App shows 3 days weather forecast (free weather api limitation)
+
+## Purpose of built:
+- Using organized modules with reusable structures
+- Implementing charting library
+- Working with API
 
 # Features and libraries
 - For development purposes user location is estimated based on IP

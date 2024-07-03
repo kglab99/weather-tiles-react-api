@@ -8,10 +8,11 @@ import { tileSquareStyle, buttonStyle } from '../Additional/styles';
 import TempPopup from '../Popups/current-weather';
 
 
-
+// Tile content
 function TileCurrentWeather({forecast, day}) {
     let location = forecast.location.name;
 
+    // More toggle - display popup with additional info
     const [MoreToggle, setMoreToggle] = useState(false);
 
     function MoreClick() {
