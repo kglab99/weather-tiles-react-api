@@ -7,12 +7,12 @@ The main focus was put on using clearly organized modules with reusable structur
 Additional task was implementing charting library.
 
 # Features and libraries
-- For development location is based on IP location
+- For development purposes user location is estimated based on IP
 - 3 day weather forecast (free weather api limitation)
-- Charts for hourly temp, wind speed and chance of rain made with **Charts.js** library
-- UV index and air quality indicators made with **rc-progress** library
+- Charts for hourly temp, wind speed and chance of rain is made with **Charts.js**
+- UV index and air quality indicators is made with **rc-progress** 
 - Sunrise half donut progress bar showing elapsed daytime,
-calculations made with **SunCalc** library and progress bar made with **react-customizable-progressbar** library
+calculations is made with **SunCalc**  and progress bar is made with **react-customizable-progressbar** 
 
 
 
