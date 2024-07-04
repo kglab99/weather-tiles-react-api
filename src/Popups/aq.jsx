@@ -8,8 +8,8 @@ const level2 = "#CB830F";
 const level3 = "#CB4D0F";
 const level4 = "#CB0F0F";
 
-function AQPopup({ forecast, day }) {
-  let aq = forecast.forecast.forecastday[day].day.air_quality;
+function AQPopup({ forecast }) {
+  let aq = forecast.current.air_quality;
 
   return (
     <>
@@ -28,6 +28,7 @@ function AQPopup({ forecast, day }) {
       </p>
       <h2>Details</h2>
       <table>
+        <tbody>
         <tr>
           <th style={{ width: "15%" }}>Particle</th>
           <th style={{ width: "70%" }}></th>
@@ -93,6 +94,7 @@ function AQPopup({ forecast, day }) {
           </td>
           <td>{Math.floor(aq.so2 * 100) / 100}</td>
         </tr>
+        </tbody>
       </table>
     </>
   );

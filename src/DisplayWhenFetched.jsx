@@ -53,7 +53,7 @@ const DisplayWhenFetchedAndChooseDay = () => {
       <TileHumidity forecast={forecast} day={day} />
       {/* Currently sunrise displayed only on day 0 */}
       <TilePressure forecast={forecast} day={day} />
-      <TileAQ forecast={forecast} day={day} />
+      {day == 0 &&  <TileAQ forecast={forecast} day={day} />    }
     </>
   );
 };

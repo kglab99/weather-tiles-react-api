@@ -9,7 +9,7 @@ const FetchWithIP = () => {
 
   useEffect(() => {
     fetch(
-      "https://api.weatherapi.com/v1/forecast.json?key=b97a7289e4e24edbbb8101327242006&q=auto:ip&days=8&aqi=yes",
+      "https://api.weatherapi.com/v1/forecast.json?key=b97a7289e4e24edbbb8101327242006&q=auto:ip&days=3&aqi=yes",
       { mode: "cors" }
     )
       .then((response) => {
