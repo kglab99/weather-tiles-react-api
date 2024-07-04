@@ -41,7 +41,7 @@ export default TileAQ;
 
 // Aditional functions
 
-function AQContent({ forecast, day }) {
+function AQContent({ forecast }) {
   let aqi = calculateAirQuality(
     forecast.current.air_quality["gb-defra-index"]
   );
