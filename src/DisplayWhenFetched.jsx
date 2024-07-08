@@ -11,6 +11,7 @@ import TileHumidity from "./Tiles/humidity";
 import TileSunrise from "./Tiles/sunrise";
 import TilePressure from "./Tiles/pressure";
 import TileAQ from "./Tiles/airquality";
+import Loading from './Components/Loading'
 
 const DisplayWhenFetched = () => {
   const [selectedDay, setSelectedDay] = useState(0);
@@ -39,7 +40,7 @@ const DisplayWhenFetched = () => {
     setSelectedDay(dayIndex);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>A network error occurred: {error}</p>;
 
   return (
@@ -50,7 +51,7 @@ const DisplayWhenFetched = () => {
           placeholder="Enter location"
           value={searchInput}
           onChange={handleInputChange}
-          onKeyPress={handleKeyPress} // Listen for Enter key press
+          onKeyDown={handleKeyPress} // Listen for Enter key press
         />
         <button onClick={handleSearch}>Search</button>
       </div>

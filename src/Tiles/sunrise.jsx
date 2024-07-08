@@ -1,6 +1,6 @@
 import "../css/Tiles.css";
 import TopBar from "../Components/TopBar";
-import { tileSquareStyle, buttonStyle } from "../Additional/styles";
+import { tileSquareStyle } from "../Additional/styles";
 import SunCalc from "suncalc3";
 import ProgressBar from "react-customizable-progressbar";
 
@@ -18,48 +18,46 @@ export default TileSunrise;
 function SunChart({ forecast, day }) {
   let latitude = forecast.location.lat;
   let longitude = forecast.location.lon;
-  const currentDateAndTime = new Date(
-    forecast.location.localtime.replace(/-/g, "/")
-  );
-  let sunTimes = SunCalc.getSunTimes(
-    currentDateAndTime,
-    latitude,
-    longitude,
-    0
-  );
-  let sunrise = sunTimes.sunriseStart.value.toString().split(" ")[4].split(":");
-  let sunset = sunTimes.sunsetEnd.value.toString().split(" ")[4].split(":");
 
-  let dayTime = Math.floor(
-    (sunTimes.sunsetEnd.value - sunTimes.sunriseStart.value) / 60000
-  );
-  console.log(dayTime);
+  const timezoneOffset = forecast.location.timezone_offset * 60 * 1000; // Convert minutes to milliseconds
+  let currentDateAndTime = new Date(forecast.location.localtime + timezoneOffset);
 
-  let dayTimeElapsed = Math.floor(
-    (currentDateAndTime - sunTimes.sunriseStart.value) / 60000
-  );
-  console.log(dayTimeElapsed);
+  currentDateAndTime = new Date();
+  let sunTimes = SunCalc.getSunTimes(currentDateAndTime, latitude, longitude);
+
+  let sunrise = sunTimes.sunriseStart.value;
+  let sunset = sunTimes.sunsetEnd.value;
+
+
+    sunrise = sunrise.toString().split(" ")[4].split(":");
+    sunrise = `${sunrise[0]}:${sunrise[1]}`;
+
+
+    sunset = sunset.toString().split(" ")[4].split(":");
+    sunset = `${sunset[0]}:${sunset[1]}`;
+  
+  let dayTime = Math.floor((sunTimes.sunsetEnd.value - sunTimes.sunriseStart.value) / 60000);
+
+  let dayTimeElapsed = Math.floor((currentDateAndTime - sunTimes.sunriseStart.value) / 60000);
 
   let dayTimePercentage = (dayTimeElapsed / dayTime) * 100;
-  console.log(dayTimePercentage);
+  
+  console.log(dayTime)
+  console.log(dayTimeElapsed)
+  console.log(dayTimePercentage)
 
   if (dayTimePercentage > 100) {
     dayTimePercentage = 100;
   }
 
-  console.log(dayTimePercentage);
-
-  sunrise = `${sunrise[0]}:${sunrise[1]}`;
-  sunset = `${sunset[0]}:${sunset[1]}`;
+  if (dayTimePercentage < 0) {
+    dayTimePercentage = 0;
+  }
 
   const bottomStyle = {
     display: "flex",
     justifyContent: "space-between",
     marginTop: "-80px",
-  };
-
-  const progressStyle = {
-    alignSelf: "center",
   };
 
   const bottomTextStyle = {
