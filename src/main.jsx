@@ -6,7 +6,6 @@ import Loading from "./Components/Loading.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <Loading /> */}
     <DisplayWhenFetched />
   </React.StrictMode>
 );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FetchWithIP from "./FetchWithIP";
+import useWeatherData from "./FetchWithGeo";
 import TileCurrentWeather from "./Tiles/current-weather";
 import { day1Name, day2Name } from "./Additional/getDayNames";
 import TileWind from "./Tiles/wind";
@@ -11,27 +11,33 @@ import TileHumidity from "./Tiles/humidity";
 import TileSunrise from "./Tiles/sunrise";
 import TilePressure from "./Tiles/pressure";
 import TileAQ from "./Tiles/airquality";
-import Loading from './Components/Loading'
+import Loading from './Components/Loading';
 import Error from "./Components/Error";
 
 const DisplayWhenFetched = () => {
   const [selectedDay, setSelectedDay] = useState(0);
-  const [location, setLocation] = useState("auto:ip"); // State for location
-  const [searchInput, setSearchInput] = useState(""); // State for input value
-  const { forecast, error, loading } = FetchWithIP(location);
+  const [location, setLocation] = useState("auto:ip");
+  const [searchInput, setSearchInput] = useState("");
+  const [useGeo, setUseGeo] = useState(false);
+
+  const { forecast, error, loading } = useWeatherData(location, useGeo);
 
   const handleInputChange = (event) => {
-    setSearchInput(event.target.value); // Update local input value
+    setSearchInput(event.target.value);
   };
 
   const handleSearch = () => {
-    // Trigger search based on 'searchInput'
-    setLocation(searchInput); // Update location state
-    setSelectedDay(0); // Reset selected day when searching
+    setLocation(searchInput);
+    setSelectedDay(0);
+    setUseGeo(false);
+  };
+
+  const handleGeoLocation = () => {
+    setSelectedDay(0);
+    setUseGeo(true);
   };
 
   const handleKeyPress = (event) => {
-    // Trigger search if Enter key is pressed (key code 13)
     if (event.key === "Enter") {
       handleSearch();
     }
@@ -52,9 +58,10 @@ const DisplayWhenFetched = () => {
           placeholder="Enter location"
           value={searchInput}
           onChange={handleInputChange}
-          onKeyDown={handleKeyPress} // Listen for Enter key press
+          onKeyDown={handleKeyPress}
         />
         <button onClick={handleSearch}>Search</button>
+        <button onClick={handleGeoLocation}>Geolocation</button>
       </div>
       <div className="buttons">
         <button onClick={() => handleDaySelect(0)}>Today</button>
