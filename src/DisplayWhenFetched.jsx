@@ -12,6 +12,7 @@ import TileSunrise from "./Tiles/sunrise";
 import TilePressure from "./Tiles/pressure";
 import TileAQ from "./Tiles/airquality";
 import Loading from './Components/Loading'
+import Error from "./Components/Error";
 
 const DisplayWhenFetched = () => {
   const [selectedDay, setSelectedDay] = useState(0);
@@ -41,7 +42,7 @@ const DisplayWhenFetched = () => {
   };
 
   if (loading) return <Loading />;
-  if (error) return <p>A network error occurred: {error}</p>;
+  if (error) return <Error />;
 
   return (
     <>

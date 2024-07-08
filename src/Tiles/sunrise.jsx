@@ -15,7 +15,8 @@ function TileSunrise({ forecast, day }) {
 
 export default TileSunrise;
 
-function SunChart({ forecast, day }) {
+
+function SunChart({ forecast }) {
   let latitude = forecast.location.lat;
   let longitude = forecast.location.lon;
 
@@ -41,10 +42,6 @@ function SunChart({ forecast, day }) {
   let dayTimeElapsed = Math.floor((currentDateAndTime - sunTimes.sunriseStart.value) / 60000);
 
   let dayTimePercentage = (dayTimeElapsed / dayTime) * 100;
-  
-  console.log(dayTime)
-  console.log(dayTimeElapsed)
-  console.log(dayTimePercentage)
 
   if (dayTimePercentage > 100) {
     dayTimePercentage = 100;
@@ -64,12 +61,8 @@ function SunChart({ forecast, day }) {
     marginTop: 0,
   };
 
-  const contentStyle = {
-    // justifyContent: "center"
-  };
-
   return (
-    <div className="content uv" style={contentStyle}>
+    <div className="content uv" >
       <ProgressBar
         radius={70}
         progress={dayTimePercentage}
