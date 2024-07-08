@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import DisplayWhenFetchedIPAndChooseDay from "./DisplayWhenFetchedWithIP.jsx";
+import DisplayWhenFetched from "./DisplayWhenFetched.jsx";
 import "./css/Tiles.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <DisplayWhenFetchedIPAndChooseDay />
+    <DisplayWhenFetched />
   </React.StrictMode>
 );

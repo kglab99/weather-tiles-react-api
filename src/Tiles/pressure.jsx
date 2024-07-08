@@ -5,7 +5,7 @@ import { tileSquareStyle, buttonStyle } from "../Additional/styles";
 function TilePressure({ forecast, day }) {
   return (
     <div className="tile-square" style={tileSquareStyle}>
-      <TopBar text="Visibility" img="vis" infoIcon={false} />
+      <TopBar text="Pressure" img="pressure" infoIcon={false} />
       <PressureContent forecast={forecast} day={day} />
     </div>
   );
