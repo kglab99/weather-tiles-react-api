@@ -46,8 +46,7 @@ function AQContent({ forecast }) {
 
   function calculateAirQuality(defraIndex) {
     //GB Defra index runs as: 1 - best air quality, 10 - worst
-    //We reversa that for better visual representation rate 10 for best AQI
-    //Lets highlight positives!
+    //We reverse that for better visual representation - rate 10 for best AQI
 
     let aqi = 10 - defraIndex + 1;
 

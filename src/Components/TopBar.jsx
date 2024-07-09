@@ -1,5 +1,4 @@
 import { ChartIcon } from "../Additional/ChartIcon";
-import { InfoIcon } from "../Additional/InfoIcon";
 import tempImg from "/location.png";
 import windImg from "/wind.png";
 import rainImg from "/rain.png";
@@ -12,7 +11,7 @@ import pressureImg from "/pressure.png";
 import aqImg from "/air-quality.png";
 import sunriseImg from "/sunrise.png";
 
-function TopBar({ text, img, chartIcon, infoIcon }) {
+function TopBar({ text, img, chartIcon }) {
   const imgSrc = {
     temp: tempImg,
     wind: windImg,
