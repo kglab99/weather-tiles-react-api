@@ -2,11 +2,11 @@
 ### [Preview](https://react-tiles-weather-app.netlify.app/)
 
 # Info
-- Weather app made for exploration of React.
-- App shows 3 days weather forecast (free weather api limitation)
+- Weather app made for React exploration
+- 3 days weather forecast (free weather api limitation)
 
 ## Purpose of built:
-- Using organized modules with reusable structures
+- Using organized modules with reusable structure
 - Implementing charting library
 - Working with API
 
