@@ -77,13 +77,12 @@ const DisplayWhenFetched = () => {
       <div className="search">
         <input
           type="text"
-          placeholder="Enter location"
+          placeholder="Enter location to search"
           value={searchInput}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
         />
-        <button onClick={handleSearch}>Search</button>
-        <button onClick={handleGeoLocation}>Geolocation</button>
+        <button onClick={handleGeoLocation}>Use geolocation</button>
       </div>
       <div className="buttons">
         <button onClick={handlePreviousDay}><img src={back} alt="" /></button>
