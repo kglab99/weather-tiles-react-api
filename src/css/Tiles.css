@@ -208,7 +208,7 @@ div.buttons {
 
 @media (max-width: 500px) {
   div#search {
-    width: 90vw;
+    /* width: 90vw; */
     margin-top: 4vh;
     margin-bottom: 2vh;
 
@@ -338,3 +338,55 @@ input.search:hover {
 }
 
 
+
+/* Fix zoom on mobile devices */
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+    background: #eee;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+}
+
+
+/* Ensure search and buttons div have the same width as tiles */
+@media (min-width: 1080px) and (max-width: 1342px) {
+  div.search,
+  div.buttons {
+    width: 985px;
+  }
+
+}
+
+@media (min-width: 820px) and (max-width: 1080px) {
+  div.search,
+  div.buttons {
+    width: 725px;
+  }
+
+}
+
+@media  (max-width: 820px) {
+  div.search,
+  div.buttons {
+    width: 465px;
+  }
+
+}
+
+@media  (max-width: 500px) {
+  div.search,
+  div.buttons {
+    width: 350px;
+  }
+
+}

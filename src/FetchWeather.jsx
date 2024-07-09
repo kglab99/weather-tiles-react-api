@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
-const useWeatherData = (location, useGeo) => {
+const FetchWeatherData = (location, useGeo) => {
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [coords, setCoords] = useState(null);
   const [city, setCity] = useState(null);
 
+  // Handle geolocation
   useEffect(() => {
     if (useGeo) {
       const handleSuccess = (position) => {
@@ -27,16 +28,22 @@ const useWeatherData = (location, useGeo) => {
         setError("Geolocation not supported by this browser.");
         setLoading(false);
       }
+    } else {
+      // Reset coords and city when switching from geolocation to search
+      // Resolves issue that caused search to stop working once geolocation was used
+      setCoords(null);
+      setCity(null);
     }
   }, [useGeo]);
 
+  // Fetch city name based on coordinates
   useEffect(() => {
     const getCityName = async () => {
       if (coords) {
         try {
           const response = await fetch(
             `https://us1.locationiq.com/v1/reverse?key=pk.9fdc1490ae4d809ce9ece84b2c3bda46&lat=${coords.latitude}&lon=${coords.longitude}&format=json&accept-language=en`,
-            { mode: 'cors' }
+            { mode: "cors" }
           );
           const data = await response.json();
           const cityName = data.address.city || data.address.village || null;
@@ -55,6 +62,7 @@ const useWeatherData = (location, useGeo) => {
     getCityName();
   }, [coords]);
 
+  // Fetch weather data based on city or location
   useEffect(() => {
     const fetchWeatherData = async () => {
       setLoading(true);
@@ -90,23 +98,22 @@ const useWeatherData = (location, useGeo) => {
   return { forecast, error, loading };
 };
 
-export default useWeatherData;
+export default FetchWeatherData;
 
 // Normalize special characters to ones used by the weather API
 function normalizeString(str) {
-    const iMap = {
-      'ð': 'd',
-      'ı': 'i',
-      'Ł': 'L',
-      'ł': 'l',
-      'ø': 'o',
-      'ß': 'ss',
-      'ü': 'ue'
-    };
-    const iRegex = new RegExp(Object.keys(iMap).join('|'), 'g');
-    return str
-      .replace(iRegex, (m) => iMap[m])
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, '');
-  }
-  
+  const iMap = {
+    ð: "d",
+    ı: "i",
+    Ł: "L",
+    ł: "l",
+    ø: "o",
+    ß: "ss",
+    ü: "ue",
+  };
+  const iRegex = new RegExp(Object.keys(iMap).join("|"), "g");
+  return str
+    .replace(iRegex, (m) => iMap[m])
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}

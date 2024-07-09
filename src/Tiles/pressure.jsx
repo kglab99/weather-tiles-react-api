@@ -1,6 +1,6 @@
 import "../css/Tiles.css";
 import TopBar from "../Components/TopBar";
-import { tileSquareStyle, buttonStyle } from "../Additional/styles";
+import { tileSquareStyle } from "../Additional/styles";
 
 function TilePressure({ forecast, day }) {
   return (

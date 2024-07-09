@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import useWeatherData from "./FetchWithGeo";
+import { useState } from "react";
+import FetchWeatherData from "./FetchWeather";
 import TileCurrentWeather from "./Tiles/current-weather";
 import { day1Name, day2Name } from "./Additional/getDayNames";
 import TileWind from "./Tiles/wind";
@@ -11,7 +11,7 @@ import TileHumidity from "./Tiles/humidity";
 import TileSunrise from "./Tiles/sunrise";
 import TilePressure from "./Tiles/pressure";
 import TileAQ from "./Tiles/airquality";
-import Loading from './Components/Loading';
+import Loading from "./Components/Loading";
 import Error from "./Components/Error";
 
 const DisplayWhenFetched = () => {
@@ -20,7 +20,7 @@ const DisplayWhenFetched = () => {
   const [searchInput, setSearchInput] = useState("");
   const [useGeo, setUseGeo] = useState(false);
 
-  const { forecast, error, loading } = useWeatherData(location, useGeo);
+  const { forecast, error, loading } = FetchWeatherData(location, useGeo);
 
   const handleInputChange = (event) => {
     setSearchInput(event.target.value);
@@ -72,7 +72,9 @@ const DisplayWhenFetched = () => {
       <TileWind forecast={forecast} day={selectedDay} />
       <TileRain forecast={forecast} day={selectedDay} />
       <TileUV forecast={forecast} day={selectedDay} />
-      {selectedDay === 0 && <TileSunrise forecast={forecast} day={selectedDay} />}
+      {selectedDay === 0 && (
+        <TileSunrise forecast={forecast} day={selectedDay} />
+      )}
       <TileMoon forecast={forecast} day={selectedDay} />
       <TileVisibility forecast={forecast} day={selectedDay} />
       <TileHumidity forecast={forecast} day={selectedDay} />

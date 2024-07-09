@@ -1,11 +1,7 @@
 import "../css/Tiles.css";
 import TopBar from "../Components/TopBar";
 import { useState } from "react";
-import closeImg from "/close.png";
-import Popup from "reactjs-popup";
-import { tileSquareStyle, buttonStyle } from "../Additional/styles";
-
-import UVPopup from "../Popups/uv";
+import { tileSquareStyle } from "../Additional/styles";
 
 import { Line } from "rc-progress";
 
@@ -18,19 +14,13 @@ function TileUV({ forecast, day }) {
 
   return (
     <div
-      className="tile-square clickable"
+      className="tile-square"
       style={tileSquareStyle}
       onClick={MoreClick}
       onDoubleClick={MoreClick}
     >
-      <TopBar text="UV index" img="uv" infoIcon={true} />
+      <TopBar text="UV index" img="uv" infoIcon={false} />
       <UVContent forecast={forecast} day={day} />
-      <Popup open={MoreToggle} closeOnDocumentClick>
-        <button className="close" onClick={MoreClick} style={buttonStyle}>
-          <img src={closeImg}></img>
-        </button>
-        <UVPopup forecast={forecast} day={day} />
-      </Popup>
     </div>
   );
 }

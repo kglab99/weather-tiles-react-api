@@ -42,9 +42,7 @@ export default TileAQ;
 // Aditional functions
 
 function AQContent({ forecast }) {
-  let aqi = calculateAirQuality(
-    forecast.current.air_quality["gb-defra-index"]
-  );
+  let aqi = calculateAirQuality(forecast.current.air_quality["gb-defra-index"]);
 
   function calculateAirQuality(defraIndex) {
     //GB Defra index runs as: 1 - best air quality, 10 - worst

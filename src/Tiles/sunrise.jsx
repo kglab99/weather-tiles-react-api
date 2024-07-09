@@ -15,13 +15,14 @@ function TileSunrise({ forecast, day }) {
 
 export default TileSunrise;
 
-
 function SunChart({ forecast }) {
   let latitude = forecast.location.lat;
   let longitude = forecast.location.lon;
 
   const timezoneOffset = forecast.location.timezone_offset * 60 * 1000; // Convert minutes to milliseconds
-  let currentDateAndTime = new Date(forecast.location.localtime + timezoneOffset);
+  let currentDateAndTime = new Date(
+    forecast.location.localtime + timezoneOffset
+  );
 
   currentDateAndTime = new Date();
   let sunTimes = SunCalc.getSunTimes(currentDateAndTime, latitude, longitude);
@@ -29,17 +30,19 @@ function SunChart({ forecast }) {
   let sunrise = sunTimes.sunriseStart.value;
   let sunset = sunTimes.sunsetEnd.value;
 
+  sunrise = sunrise.toString().split(" ")[4].split(":");
+  sunrise = `${sunrise[0]}:${sunrise[1]}`;
 
-    sunrise = sunrise.toString().split(" ")[4].split(":");
-    sunrise = `${sunrise[0]}:${sunrise[1]}`;
+  sunset = sunset.toString().split(" ")[4].split(":");
+  sunset = `${sunset[0]}:${sunset[1]}`;
 
+  let dayTime = Math.floor(
+    (sunTimes.sunsetEnd.value - sunTimes.sunriseStart.value) / 60000
+  );
 
-    sunset = sunset.toString().split(" ")[4].split(":");
-    sunset = `${sunset[0]}:${sunset[1]}`;
-  
-  let dayTime = Math.floor((sunTimes.sunsetEnd.value - sunTimes.sunriseStart.value) / 60000);
-
-  let dayTimeElapsed = Math.floor((currentDateAndTime - sunTimes.sunriseStart.value) / 60000);
+  let dayTimeElapsed = Math.floor(
+    (currentDateAndTime - sunTimes.sunriseStart.value) / 60000
+  );
 
   let dayTimePercentage = (dayTimeElapsed / dayTime) * 100;
 
@@ -62,7 +65,7 @@ function SunChart({ forecast }) {
   };
 
   return (
-    <div className="content uv" >
+    <div className="content uv">
       <ProgressBar
         radius={70}
         progress={dayTimePercentage}
