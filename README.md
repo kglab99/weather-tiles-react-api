@@ -11,15 +11,11 @@
 - Working with API
 
 # Features and libraries
-- For development purposes user location is estimated based on IP
+- Initially forecast location based on IP
+- 'Use geolocation' button to ask for geolocation permission and locate with it
+- Search functionality
 - Charts for hourly temp, wind speed and chance of rain is made with **Charts.js**
 - UV index and air quality indicators is made with **rc-progress** 
 - Sunrise half donut progress bar showing elapsed daytime,
 calculations is made with **SunCalc**  and progress bar is made with **react-customizable-progressbar** 
 - Weather forecast is provided by **www.weatherapi.com**
-
-
-
-# Future features
-- Geolocation via location services when user gives permission
-- Search option
