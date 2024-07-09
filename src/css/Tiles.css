@@ -155,8 +155,8 @@ div.search {
   width: 100%;
   gap: 16px;
   justify-content: center;
-  background-color: var(--tile-color);
-  padding: 15px;
+  /* background-color: var(--tile-color); */
+  /* padding: 15px; */
   border-radius: 5px;
 
   input {
@@ -188,14 +188,15 @@ div.buttons {
   width: 100%;
   gap: 32px;
   justify-content: center;
-  background-color: var(--tile-color);
-  padding: 15px;
+  align-items: center;
+  /* background-color: var(--tile-color); */
+  /* padding: 15px; */
+  margin-bottom: 32px;
   border-radius: 5px;
 
   button {
     padding: 15px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.15);
+    background: none;
     border: none;
     font-weight: 500;
     border-radius: 5px;
@@ -204,6 +205,17 @@ div.buttons {
   button:hover {
     cursor: pointer;
     scale: 1.05;
+  }
+
+  img {
+    width: 36px;
+    height: 36px;
+    filter: invert(1);
+  }
+
+  p {
+    width: 100px;
+    text-align: center;
   }
 }
 

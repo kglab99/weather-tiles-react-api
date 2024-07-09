@@ -13,6 +13,8 @@ import TilePressure from "./Tiles/pressure";
 import TileAQ from "./Tiles/airquality";
 import Loading from "./Components/Loading";
 import Error from "./Components/Error";
+import next from '/next.png'
+import back from '/back.png'
 
 const DisplayWhenFetched = () => {
   const [selectedDay, setSelectedDay] = useState(0);
@@ -49,8 +51,22 @@ const DisplayWhenFetched = () => {
     }
   };
 
-  const handleDaySelect = (dayIndex) => {
-    setSelectedDay(dayIndex);
+  const handleNextDay = () => {
+    if (selectedDay < 2) {
+      setSelectedDay(selectedDay + 1);
+    }
+  };
+
+  const handlePreviousDay = () => {
+    if (selectedDay > 0) {
+      setSelectedDay(selectedDay - 1);
+    }
+  };
+
+  const getDayName = () => {
+    if (selectedDay === 0) return "Today";
+    if (selectedDay === 1) return day1Name;
+    if (selectedDay === 2) return day2Name;
   };
 
   if (loading) return <Loading />;
@@ -70,11 +86,11 @@ const DisplayWhenFetched = () => {
         <button onClick={handleGeoLocation}>Geolocation</button>
       </div>
       <div className="buttons">
-        <button onClick={() => handleDaySelect(0)}>Today</button>
-        <button onClick={() => handleDaySelect(1)}>{day1Name}</button>
-        <button onClick={() => handleDaySelect(2)}>{day2Name}</button>
+        <button onClick={handlePreviousDay}><img src={back} alt="" /></button>
+        <p>{getDayName()}</p>
+        <button onClick={handleNextDay}><img src={next} alt="" /></button>
       </div>
-      <TileCurrentWeather forecast={forecast} day={selectedDay}/>
+      <TileCurrentWeather forecast={forecast} day={selectedDay} />
       <TileWind forecast={forecast} day={selectedDay} />
       <TileRain forecast={forecast} day={selectedDay} />
       <TileUV forecast={forecast} day={selectedDay} />
