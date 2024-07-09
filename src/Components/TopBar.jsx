@@ -49,7 +49,6 @@ function TopBar({ text, img, chartIcon, infoIcon }) {
       <img src={imgSrc[img]} alt="" style={imgStyle} />
       <p style={pStyle}>{text}</p>
       {chartIcon && <ChartIcon />}
-      {infoIcon && <InfoIcon />}
     </div>
   );
 }

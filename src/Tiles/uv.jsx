@@ -19,7 +19,7 @@ function TileUV({ forecast, day }) {
       onClick={MoreClick}
       onDoubleClick={MoreClick}
     >
-      <TopBar text="UV index" img="uv" infoIcon={false} />
+      <TopBar text="UV index" img="uv" />
       <UVContent forecast={forecast} day={day} />
     </div>
   );

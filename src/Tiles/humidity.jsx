@@ -5,7 +5,7 @@ import { tileSquareStyle } from "../Additional/styles";
 function TileHumidity({ forecast, day }) {
   return (
     <div className="tile-square" style={tileSquareStyle}>
-      <TopBar text="Humidity" img="humidity" infoIcon={false} />
+      <TopBar text="Humidity" img="humidity"  />
       <VisContent forecast={forecast} day={day} />
     </div>
   );

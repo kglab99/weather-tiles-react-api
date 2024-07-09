@@ -17,7 +17,7 @@ export default function TileMoon({ forecast, day }) {
       onClick={MoreClick}
       onDoubleClick={MoreClick}
     >
-      <TopBar text="Moonphase" img="moon" infoIcon={false} />
+      <TopBar text="Moonphase" img="moon" />
       <Moonphase forecast={forecast} day={day} />
     </div>
   );

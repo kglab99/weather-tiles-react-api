@@ -16,6 +16,7 @@
   --tile-color: #0b343c;
 }
 
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -60,7 +61,7 @@ div.content {
   justify-content: space-between;
 
   h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     margin: 0;
     text-align: left;
   }

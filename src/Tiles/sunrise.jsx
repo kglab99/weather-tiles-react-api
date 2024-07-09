@@ -7,7 +7,7 @@ import ProgressBar from "react-customizable-progressbar";
 function TileSunrise({ forecast, day }) {
   return (
     <div className="tile-square" style={tileSquareStyle}>
-      <TopBar text="Sunrise" img="sunrise" infoIcon={false} />
+      <TopBar text="Sunrise" img="sunrise" />
       <SunChart forecast={forecast} day={day} />
     </div>
   );

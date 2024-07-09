@@ -1,11 +1,11 @@
 import "../css/Tiles.css";
 import TopBar from "../Components/TopBar";
-import { tileSquareStyle, buttonStyle } from "../Additional/styles";
+import { tileSquareStyle } from "../Additional/styles";
 
 function TileVisibility({ forecast, day }) {
   return (
     <div className="tile-square" style={tileSquareStyle}>
-      <TopBar text="Visibility" img="vis" infoIcon={false} />
+      <TopBar text="Visibility" img="vis" />
       <VisContent forecast={forecast} day={day} />
     </div>
   );

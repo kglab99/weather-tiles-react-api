@@ -22,6 +22,12 @@ const DisplayWhenFetched = () => {
 
   const { forecast, error, loading } = FetchWeatherData(location, useGeo);
 
+  navigator.permissions.query({ name: 'geolocation' }).then(function (permissionStatus) {
+    if (permissionStatus.state === 'granted') {
+      setUseGeo(true);
+    }
+  });  
+
   const handleInputChange = (event) => {
     setSearchInput(event.target.value);
   };
@@ -68,7 +74,7 @@ const DisplayWhenFetched = () => {
         <button onClick={() => handleDaySelect(1)}>{day1Name}</button>
         <button onClick={() => handleDaySelect(2)}>{day2Name}</button>
       </div>
-      <TileCurrentWeather forecast={forecast} day={selectedDay} />
+      <TileCurrentWeather forecast={forecast} day={selectedDay}/>
       <TileWind forecast={forecast} day={selectedDay} />
       <TileRain forecast={forecast} day={selectedDay} />
       <TileUV forecast={forecast} day={selectedDay} />
