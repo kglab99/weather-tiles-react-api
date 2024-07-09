@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FetchWeatherData from "./FetchWeather";
 import TileCurrentWeather from "./Tiles/current-weather";
 import { day1Name, day2Name } from "./Additional/getDayNames";
@@ -24,11 +24,14 @@ const DisplayWhenFetched = () => {
 
   const { forecast, error, loading } = FetchWeatherData(location, useGeo);
 
-  navigator.permissions.query({ name: 'geolocation' }).then(function (permissionStatus) {
-    if (permissionStatus.state === 'granted') {
-      setUseGeo(true);
-    }
-  });  
+  // Effect causes function to run only on initial render allowing search function to work
+  useEffect(() => {
+    navigator.permissions.query({ name: 'geolocation' }).then(function (permissionStatus) {
+      if (permissionStatus.state === 'granted') {
+        setUseGeo(true);
+      }
+    });
+  }, []); 
 
   const handleInputChange = (event) => {
     setSearchInput(event.target.value);

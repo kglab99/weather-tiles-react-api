@@ -71,7 +71,8 @@ const FetchWeatherData = (location, useGeo) => {
       if (city) {
         apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=b97a7289e4e24edbbb8101327242006&q=${city}&days=3&aqi=yes`;
       } else if (!useGeo) {
-        apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=b97a7289e4e24edbbb8101327242006&q=${location}&days=3&aqi=yes`;
+        const normalizedLocation = normalizeString(location);
+        apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=b97a7289e4e24edbbb8101327242006&q=${normalizedLocation}&days=3&aqi=yes`;
       } else {
         return;
       }
